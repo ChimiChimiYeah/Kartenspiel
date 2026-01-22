@@ -1,11 +1,26 @@
 #include "spieler.h"
 
-void spielername(char *spielername)
+void initialisiereSpieler(spieler *mensch, spieler *computer)
 {
-    // Implementation for getting and setting the player's name
+    // Implementation for initializing player data
+    // Initialize human player
+    mensch->punkte = 0;
+    mensch->zugPointer = &spielerzug;
+    mensch->spielername = spielername();
+
+    // Initialize computer player
+    computer->punkte = 0;
+    computer->zugPointer = zufaelligeComputerStrategie;
+    computer->spielername = "Computer";
 }
 
-void spielerzug(int *zug)
+char *spielername(void)
+{
+    // Implementation for getting and setting the player's name
+    return "Mensch";
+}
+
+void spielerzug(void)
 {
     // Implementation for handling the player's move
     // show available hand cards
@@ -13,32 +28,32 @@ void spielerzug(int *zug)
     // validate the move
 }
 
-void zufaelligerComputerZug()
+void zufaelligeComputerStrategie(void)
 {
     // implementation to set a random computer strategy
     // random selection of one of the four strategies
     // einfach, strategisch, wechselnd, reaktiv
 }
 
-void vorbereitungStrategischerComputer()
+void vorbereitungStrategischerComputer(void)
 {
-    // Implementation for preparing a strategic computer player
-    // strategy for selecting a card to play based on game state
+    // implmentation for sorting the computer's hand cards
+    // sorting cards in descending order based on their value
 }
 
-void vorbereitungWechselnderComputer()
+void vorbereitungWechselnderComputer(void)
 {
-    // Implementation for preparing a changing computer player
-    // alternating strategies for selecting a card to play
+    // implementation for sorting the computer's hand cards
+    // sorting cards to alternate between low and high value cards
 }
 
-void einfacheStrategischWechselnderComputer()
+void einfacherStrategischerWechselnderComputer(void)
 {
     // Implementation for preparing a simple strategic changing computer player
     // basic strategy for selecting a card to play
 }
 
-void reaktiverComputer(int *zug)
+void reaktiverComputer(void)
 {
     // Implementation for handling the computer's move
     // reactive strategy for selecting a card to play

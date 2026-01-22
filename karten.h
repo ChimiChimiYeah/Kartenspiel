@@ -33,5 +33,6 @@ typedef struct
     Kartenwert Kartenwert;
 } Spielkarte;
 
-void kartenstapel();
-void kartenMischen();
+void kartenstapelErstellen(void);
+void kartenMischen(void);
+void handkartenAusteilen(void);

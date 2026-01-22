@@ -4,14 +4,16 @@ typedef struct
     char *spielername;         // name des spielers
     Spielkarte handkarten[10]; // maximal 10 karten
     int punkte;                // startpunkte
-    void (*zugPointer)();      // funktionspointer
+    void (*zugPointer)(void);  // funktionspointer
 } spieler;
 
-void spielername(char *spielername);
-void spielerzug();
+void initialisiereSpieler(spieler *mensch, spieler *computer);
 
-void zufaelligerComputerZug();
-void vorbereitungStrategischerComputer();
-void vorbereitungWechselnderComputer();
-void einfacheStrategischWechselnderComputer();
-void reaktiverComputer();
+char *spielername(void);
+void spielerzug(void);
+
+void zufaelligeComputerStrategie(void);
+void vorbereitungStrategischerComputer(void);
+void vorbereitungWechselnderComputer(void);
+void einfacherStrategischerWechselnderComputer(void);
+void reaktiverComputer(void);

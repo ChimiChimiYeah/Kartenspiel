@@ -4,18 +4,14 @@
 
 int main(int argc, char const *argv[])
 {
-    spieler p1 = {
-        .spielername = spielername(&p1->spielername),
-        .punkte = 0,
-        .zugPointer = &spielerzug,
-    };
-    printf("Spieler Punkte: %d\n", p1.punkte);
+    spieler mensch;
+    spieler computer;
+    initialisiereSpieler(&mensch, &computer);
+    kartenstapelErstellen();
 
-    spieler computer = {
-        .spielername = "Computer",
-        .punkte = 0,
-    };
-    // random computer strategy for zugPointer to be implemented
+    printf("\n");
+    printf("Spieler: %s, Punkte: %d\n", mensch.spielername, mensch.punkte);
+    printf("Computer: %s, Punkte: %d\n", computer.spielername, computer.punkte);
 
     return 0;
 }
