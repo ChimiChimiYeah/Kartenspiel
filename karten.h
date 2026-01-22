@@ -29,10 +29,11 @@ const char *symbolWert[] = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "B", "
 
 typedef struct
 {
-    Kartenfarbe Kartenfarbe;
-    Kartenwert Kartenwert;
+    Kartenfarbe kartenfarbe;
+    Kartenwert kartenwert;
 } Spielkarte;
 
-void kartenstapelErstellen(void);
-void kartenMischen(void);
-void handkartenAusteilen(void);
+void kartenVergabe(Spielkarte *menschHandKarten, Spielkarte *computerHandKarten);
+void kartenstapelErstellen(Spielkarte *kartenStapel);
+void kartenMischen(Spielkarte *kartenStapel);
+void kartenAusteilen(Spielkarte *menschHandKarten, Spielkarte *computerHandKarten, Spielkarte *kartenStapel);
