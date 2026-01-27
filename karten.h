@@ -1,3 +1,10 @@
+#ifndef KARTEN_H
+#define KARTEN_H
+
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 typedef enum
 {
     Karo = 0,
@@ -23,9 +30,8 @@ typedef enum
     Ass
 } Kartenwert;
 
-const char *symbolFarbe[] = {"♦", "♥", "♠", "♣"};
-
-const char *symbolWert[] = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "B", "D", "K", "A"};
+extern const char *symbolFarbe[];
+extern const char *symbolWert[];
 
 typedef struct
 {
@@ -37,3 +43,5 @@ void kartenVergabe(Spielkarte *menschHandKarten, Spielkarte *computerHandKarten)
 void kartenstapelErstellen(Spielkarte *kartenStapel);
 void kartenMischen(Spielkarte *kartenStapel);
 void kartenAusteilen(Spielkarte *menschHandKarten, Spielkarte *computerHandKarten, Spielkarte *kartenStapel);
+
+#endif

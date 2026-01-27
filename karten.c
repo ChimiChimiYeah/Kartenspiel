@@ -1,5 +1,14 @@
 #include "karten.h"
 
+const char *symbolFarbe[] = {
+    "♦",
+    "♥",
+    "♠",
+    "♣"};
+
+const char *symbolWert[] = {
+    "2", "3", "4", "5", "6", "7", "8", "9", "10", "B", "D", "K", "A"};
+
 void kartenVergabe(Spielkarte *menschHandKarten, Spielkarte *computerHandKarten)
 {
     // Implementation for dealing cards to players
@@ -53,9 +62,9 @@ void kartenMischen(Spielkarte *kartenStapel)
     */
     for (int i = 51; i > 0; i--)
     {
-        int j = rand() % (i + 1);
-        Spielkarte zwischenSpeicher = kartenStapel[j];
-        kartenStapel[j] = kartenStapel[i];
+        int zufallsZahl = rand() % (i + 1);
+        Spielkarte zwischenSpeicher = kartenStapel[zufallsZahl];
+        kartenStapel[zufallsZahl] = kartenStapel[i];
         kartenStapel[i] = zwischenSpeicher;
     }
 }
