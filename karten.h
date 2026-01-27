@@ -39,9 +39,9 @@ typedef struct
     Kartenwert kartenwert;
 } Spielkarte;
 
-void kartenVergabe(Spielkarte *menschHandKarten, Spielkarte *computerHandKarten);
+void kartenVergabe(Spielkarte *menschHandkarten, Spielkarte *computerHandkarten);
 void kartenstapelErstellen(Spielkarte *kartenStapel);
 void kartenMischen(Spielkarte *kartenStapel);
-void kartenAusteilen(Spielkarte *menschHandKarten, Spielkarte *computerHandKarten, Spielkarte *kartenStapel);
+void kartenAusteilen(Spielkarte *kartenStapel, Spielkarte *menschHandKarten, Spielkarte *computerHandkarten);
 
 #endif

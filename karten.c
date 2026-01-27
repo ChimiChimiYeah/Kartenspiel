@@ -9,24 +9,14 @@ const char *symbolFarbe[] = {
 const char *symbolWert[] = {
     "2", "3", "4", "5", "6", "7", "8", "9", "10", "B", "D", "K", "A"};
 
-void kartenVergabe(Spielkarte *menschHandKarten, Spielkarte *computerHandKarten)
+void kartenVergabe(Spielkarte *menschHandkarten, Spielkarte *computerHandkarten)
 {
     // Implementation for dealing cards to players
     // Assuming a standard deck of 52 cards and dealing 10 cards each
     Spielkarte kartenStapel[52];
     kartenstapelErstellen(kartenStapel);
     kartenMischen(kartenStapel);
-    kartenAusteilen(menschHandKarten, computerHandKarten, kartenStapel);
-
-    for (int i = 0; i < 20; i++)
-    {
-        printf("Kartenfarbe: %s, Kartenwert: %s\n", symbolFarbe[kartenStapel[i].kartenfarbe], symbolWert[kartenStapel[i].kartenwert]);
-    }
-    for (int i = 0; i < 10; i++)
-    {
-        printf("C Kartenfarbe: %s, C Kartenwert: %s\n", symbolFarbe[computerHandKarten[i].kartenfarbe], symbolWert[computerHandKarten[i].kartenwert]);
-        printf("M Kartenfarbe: %s, M Kartenwert: %s\n", symbolFarbe[menschHandKarten[i].kartenfarbe], symbolWert[menschHandKarten[i].kartenwert]);
-    }
+    kartenAusteilen(kartenStapel, menschHandkarten, computerHandkarten);
 }
 
 void kartenstapelErstellen(Spielkarte *kartenStapel)
@@ -69,12 +59,12 @@ void kartenMischen(Spielkarte *kartenStapel)
     }
 }
 
-void kartenAusteilen(Spielkarte *menschHandKarten, Spielkarte *computerHandKarten, Spielkarte *kartenStapel)
+void kartenAusteilen(Spielkarte *kartenStapel, Spielkarte *menschHandkarten, Spielkarte *computerHandkarten)
 {
     // giving out cards for free
     for (int i = 0; i < 10; i++)
     {
-        computerHandKarten[i] = kartenStapel[2 * i];
-        menschHandKarten[i] = kartenStapel[2 * i + 1];
+        computerHandkarten[i] = kartenStapel[2 * i];
+        menschHandkarten[i] = kartenStapel[2 * i + 1];
     }
 }
