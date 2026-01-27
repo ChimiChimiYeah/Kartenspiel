@@ -7,7 +7,7 @@
 
 int main()
 {
-    /*
+
     spieler mensch;
     spieler computer;
     srand(time(NULL));
@@ -19,6 +19,6 @@ int main()
 
     printf("Spieler: %s, Punkte: %d\n", mensch.spielername, mensch.punkte);
     printf("Computer: %s, Punkte: %d\n", computer.spielername, computer.punkte);
-    */
+
     return 0;
 }
