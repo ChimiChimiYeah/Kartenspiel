@@ -7,7 +7,6 @@
 
 int main()
 {
-
     spieler mensch;
     spieler computer;
     srand(time(NULL));
@@ -16,7 +15,6 @@ int main()
 
     kartenVergabe(&mensch.handkarten[0], &computer.handkarten[0]);
     zufaelligeComputerStrategie(&computer);
-
     printf("Spieler: %s, Punkte: %d\n", mensch.spielername, mensch.punkte);
     printf("Computer: %s, Punkte: %d\n", computer.spielername, computer.punkte);
 

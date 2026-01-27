@@ -8,7 +8,7 @@
             "name": "(gdb) Kartenspiel",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/kartenspiel.exe",
+            "program": "${workspaceFolder}/main.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
