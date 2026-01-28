@@ -79,6 +79,21 @@ void vorbereitungWechselnderComputer(Spielkarte *computerHandkarten)
 {
     // implementation for sorting the computer's hand cards
     // sorting cards to alternate between low and high value cards
+    vorbereitungStrategischerComputer(&computerHandkarten[0]);
+    Spielkarte sortierteHandkarten[10];
+    for (int i = 0; i < 10 / 2; i++)
+    {
+        sortierteHandkarten[i * 2] = computerHandkarten[9 - i];
+        sortierteHandkarten[i * 2 + 1] = computerHandkarten[i];
+    }
+    if ((10 % 2) == 1)
+    {
+        sortierteHandkarten[10 - 1] = computerHandkarten[10 / 2 + 1];
+    }
+    for (int i = 0; i < 10; i++)
+    {
+        computerHandkarten[i] = sortierteHandkarten[i];
+    }
 }
 
 void einfacherStrategischerWechselnderComputer(Spielkarte *computerHandkarten, Spielkarte *gespielteKarte) // zweiter Parameter für gelegte Karte vom Menschen
