@@ -2,7 +2,6 @@
 #define KARTEN_H
 
 #include <time.h>
-#include <stdio.h>
 #include <stdlib.h>
 
 typedef enum

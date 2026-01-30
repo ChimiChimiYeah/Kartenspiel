@@ -113,4 +113,5 @@ int reaktiverComputer(Spielkarte *computer, Spielkarte *gespielteKarte, int zugA
 {
     // Implementation for handling the computer's move
     // reactive strategy for selecting a card to play
+    return 0;
 }
