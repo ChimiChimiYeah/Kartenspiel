@@ -25,11 +25,12 @@ char *spielername(void)
 int spielerzug(Spielkarte *menschHandkarten, Spielkarte *gespielteKarte, int zugAnzahl)
 {
     // Implementation for handling the player's move
-    // show available hand cards
-    // get players input for the played card
-    // validate the move
     (void)gespielteKarte;
-    return 0; // noch ein Übergangswert
+    int indexGewaehlterKarte;
+
+    handkartenAnzeige(menschHandkarten, zugAnzahl);
+    indexGewaehlterKarte = auswahlHandkarte();
+    return indexGewaehlterKarte;
 }
 
 void zufaelligeComputerStrategie(Spieler *computer)
