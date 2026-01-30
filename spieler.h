@@ -12,17 +12,17 @@ typedef struct
     Spielkarte handkarten[10];                                    // maximal 10 karten
     int punkte;                                                   // startpunkte
     void (*zugPointer)(Spielkarte *, Spielkarte *gespielteKarte); // funktionspointer
-} spieler;
+} Spieler;
 
-void initialisiereSpieler(spieler *mensch, spieler *computer);
+void initialisiereSpieler(Spieler *mensch, Spieler *computer);
 
 char *spielername(void);
-void spielerzug(Spielkarte *menschHandkarte, Spielkarte *gespielteKarte);
+int spielerzug(Spielkarte *menschHandkarten, Spielkarte *gespielteKarte, int zugAnzahl);
 
-void zufaelligeComputerStrategie(spieler *computer);
+void zufaelligeComputerStrategie(Spieler *computer);
 void vorbereitungStrategischerComputer(Spielkarte *computerHandkarten);
 void vorbereitungWechselnderComputer(Spielkarte *computerHandkarten);
-void einfacherStrategischerWechselnderComputer(Spielkarte *computerHandkarten, Spielkarte *gespielteKarte);
-void reaktiverComputer(Spielkarte *computerHandkarten, Spielkarte *gespielteKarte);
+int einfacherStrategischerWechselnderComputer(Spielkarte *computerHandkarten, Spielkarte *gespielteKarte, int zugAnzahl);
+int reaktiverComputer(Spielkarte *computerHandkarten, Spielkarte *gespielteKarte, int zugAnzahl);
 
 #endif

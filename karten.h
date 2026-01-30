@@ -7,7 +7,7 @@
 
 typedef enum
 {
-    Karo = 0,
+    Karo,
     Herz,
     Pik,
     Kreuz
@@ -15,7 +15,7 @@ typedef enum
 
 typedef enum
 {
-    Zwei = 0,
+    Zwei,
     Drei,
     Vier,
     Fuenf,
@@ -43,5 +43,6 @@ void kartenVergabe(Spielkarte *menschHandkarten, Spielkarte *computerHandkarten)
 void kartenstapelErstellen(Spielkarte *kartenStapel);
 void kartenMischen(Spielkarte *kartenStapel);
 void kartenAusteilen(Spielkarte *kartenStapel, Spielkarte *menschHandKarten, Spielkarte *computerHandkarten);
+void karteLegen();
 
 #endif

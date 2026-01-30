@@ -1,6 +1,6 @@
 #include "spieler.h"
 
-void initialisiereSpieler(spieler *mensch, spieler *computer)
+void initialisiereSpieler(Spieler *mensch, Spieler *computer)
 {
     // Implementation for initializing player data
     // Initialize human player
@@ -22,15 +22,17 @@ char *spielername(void)
     return "Mensch";
 }
 
-void spielerzug(Spielkarte *menschHandkarten, Spielkarte *gespielteKarte)
+int spielerzug(Spielkarte *menschHandkarten, Spielkarte *gespielteKarte, int zugAnzahl)
 {
     // Implementation for handling the player's move
     // show available hand cards
     // get players input for the played card
     // validate the move
+    (void)gespielteKarte;
+    return 0; // noch ein Übergangswert
 }
 
-void zufaelligeComputerStrategie(spieler *computer)
+void zufaelligeComputerStrategie(Spieler *computer)
 {
     // implementation to set a random computer strategy
     // random selection of one of the four strategies
@@ -96,13 +98,17 @@ void vorbereitungWechselnderComputer(Spielkarte *computerHandkarten)
     }
 }
 
-void einfacherStrategischerWechselnderComputer(Spielkarte *computerHandkarten, Spielkarte *gespielteKarte) // zweiter Parameter für gelegte Karte vom Menschen
+int einfacherStrategischerWechselnderComputer(Spielkarte *computerHandkarten, Spielkarte *gespielteKarte, int zugAnzahl) // zweiter Parameter für gelegte Karte vom Menschen
 {
     // Implementation for preparing a simple strategic changing computer player
     // basic strategy for selecting a card to play
+    (void)computerHandkarten;
+    (void)gespielteKarte;
+    (void)zugAnzahl;
+    return 0;
 }
 
-void reaktiverComputer(Spielkarte *computerHandkarten, Spielkarte *gespielteKarte) // zweiter Param für gelegte karte des menschen
+int reaktiverComputer(Spielkarte *computer, Spielkarte *gespielteKarte, int zugAnzahl) // zweiter Param für gelegte karte des menschen
 {
     // Implementation for handling the computer's move
     // reactive strategy for selecting a card to play
