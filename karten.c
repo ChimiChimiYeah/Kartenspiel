@@ -24,9 +24,9 @@ void kartenstapelErstellen(Spielkarte *kartenStapel)
     // Implementation for creating the deck of cards
     // Create a standard 52-card deck
     // Initialize the deck with all 52 cards
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < FARBEN_ANZAHL; i++)
     {
-        for (int j = 0; j < 13; j++)
+        for (int j = 0; j < WERTE_ANZAHL; j++)
         {
             // Create card with Kartenwert i and Kartenfarbe j
             Spielkarte karte =
@@ -35,7 +35,7 @@ void kartenstapelErstellen(Spielkarte *kartenStapel)
                     .kartenwert = (Kartenwert)j,
                 };
             // Add card to deck
-            kartenStapel[i * 13 + j] = karte;
+            kartenStapel[i * WERTE_ANZAHL + j] = karte;
         }
     }
 }
@@ -50,7 +50,7 @@ void kartenMischen(Spielkarte *kartenStapel)
      j ← random integer such that 0 ≤ j ≤ i
      exchange a[j] and a[i]
     */
-    for (int i = 51; i > 0; i--)
+    for (int i = DECK_GROESSE - 1; i > 0; i--)
     {
         int zufallsZahl = rand() % (i + 1);
         Spielkarte zwischenSpeicher = kartenStapel[zufallsZahl];
@@ -62,7 +62,7 @@ void kartenMischen(Spielkarte *kartenStapel)
 void kartenAusteilen(Spielkarte *kartenStapel, Spielkarte *menschHandkarten, Spielkarte *computerHandkarten)
 {
     // giving out cards for free
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < HANDKARTEN_ANZAHL; i++)
     {
         computerHandkarten[i] = kartenStapel[2 * i];
         menschHandkarten[i] = kartenStapel[2 * i + 1];

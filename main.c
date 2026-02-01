@@ -3,8 +3,9 @@
 #include <windows.h>
 #include "karten.h"
 #include "spieler.h"
+#include "ausgabe.h"
 
-int main()
+int main(void)
 {
     Spieler mensch;
     Spieler computer;
@@ -14,17 +15,12 @@ int main()
 
     kartenVergabe(&mensch.handkarten[0], &computer.handkarten[0]);
     zufaelligeComputerStrategie(&computer);
-    for (int zugAnzahl = 0; i < 10; zugAnzahl++)
+
+    for (int zugAnzahl = 0; zugAnzahl < RUNDEN_ANZAHL; zugAnzahl++)
     {
         /* code */
     }
-
-    printf("\n============================================\n\n");
-    for (int i = 0; i < 10; i++)
-    {
-        printf("C Kartenfarbe: %s, C Kartenwert: %s\n", symbolFarbe[computer.handkarten[i].kartenfarbe], symbolWert[computer.handkarten[i].kartenwert]);
-        // printf("M Kartenfarbe: %s, M Kartenwert: %s\n", symbolFarbe[mensch.handkarten[i].kartenfarbe], symbolWert[mensch.handkarten[i].kartenwert]);
-    }
+    test(&computer);
     printf("Spieler: %s, Punkte: %d\n", mensch.spielername, mensch.punkte);
     printf("Computer: %s, Punkte: %d\n", computer.spielername, computer.punkte);
 

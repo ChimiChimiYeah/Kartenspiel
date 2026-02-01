@@ -33,6 +33,11 @@ int spielerzug(Spielkarte *menschHandkarten, Spielkarte *gespielteKarte, int zug
     return indexGewaehlterKarte;
 }
 
+int auswahlHandkarte()
+{
+    return 0;
+}
+
 void zufaelligeComputerStrategie(Spieler *computer)
 {
     // implementation to set a random computer strategy
@@ -43,6 +48,7 @@ void zufaelligeComputerStrategie(Spieler *computer)
     {
     case 0:
         computer->zugPointer = &einfacherStrategischerWechselnderComputer;
+        break;
     case 1:
         vorbereitungStrategischerComputer(computer->handkarten);
         computer->zugPointer = &einfacherStrategischerWechselnderComputer;
@@ -64,9 +70,9 @@ void vorbereitungStrategischerComputer(Spielkarte *computerHandkarten)
 {
     // implmentation for sorting the computer's hand cards
     // sorting cards in descending order based on their value
-    for (int i = 0; i < 9; i++)
+    for (int i = 0; i < HANDKARTEN_ANZAHL - 1; i++)
     {
-        for (int j = i + 1; j < 10; j++)
+        for (int j = i + 1; j < HANDKARTEN_ANZAHL; j++)
         {
             if (computerHandkarten[i].kartenwert < computerHandkarten[j].kartenwert)
             {
@@ -84,16 +90,16 @@ void vorbereitungWechselnderComputer(Spielkarte *computerHandkarten)
     // sorting cards to alternate between low and high value cards
     vorbereitungStrategischerComputer(&computerHandkarten[0]);
     Spielkarte sortierteHandkarten[10];
-    for (int i = 0; i < 10 / 2; i++)
+    for (int i = 0; i < HANDKARTEN_ANZAHL / 2; i++)
     {
-        sortierteHandkarten[i * 2] = computerHandkarten[9 - i];
+        sortierteHandkarten[i * 2] = computerHandkarten[(HANDKARTEN_ANZAHL - 1) - i];
         sortierteHandkarten[i * 2 + 1] = computerHandkarten[i];
     }
-    if ((10 % 2) == 1)
+    if ((HANDKARTEN_ANZAHL % 2) == 1)
     {
-        sortierteHandkarten[10 - 1] = computerHandkarten[10 / 2 + 1];
+        sortierteHandkarten[HANDKARTEN_ANZAHL - 1] = computerHandkarten[HANDKARTEN_ANZAHL / 2 + 1];
     }
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < HANDKARTEN_ANZAHL; i++)
     {
         computerHandkarten[i] = sortierteHandkarten[i];
     }
@@ -109,7 +115,7 @@ int einfacherStrategischerWechselnderComputer(Spielkarte *computerHandkarten, Sp
     return 0;
 }
 
-int reaktiverComputer(Spielkarte *computer, Spielkarte *gespielteKarte, int zugAnzahl) // zweiter Param für gelegte karte des menschen
+int reaktiverComputer(Spielkarte *computerHandkarten, Spielkarte *gespielteKarte, int zugAnzahl) // zweiter Param für gelegte karte des menschen
 {
     // Implementation for handling the computer's move
     // reactive strategy for selecting a card to play

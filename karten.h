@@ -4,6 +4,11 @@
 #include <time.h>
 #include <stdlib.h>
 
+#define FARBEN_ANZAHL 4
+#define WERTE_ANZAHL 13
+#define HANDKARTEN_ANZAHL 10
+#define DECK_GROESSE 52
+
 typedef enum
 {
     Karo,

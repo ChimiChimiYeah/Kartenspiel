@@ -5,19 +5,22 @@
 #include <stdlib.h>
 #include "karten.h"
 
+#define RUNDEN_ANZAHL 10
+
 // Struktur und Funktionen für Spieler im Kartenspiel
 typedef struct
 {
-    char *spielername;                                            // name des spielers
-    Spielkarte handkarten[10];                                    // maximal 10 karten
-    int punkte;                                                   // startpunkte
-    void (*zugPointer)(Spielkarte *, Spielkarte *gespielteKarte); // funktionspointer
+    char *spielername;                                                          // name des spielers
+    Spielkarte handkarten[ANZAHL_HANDKARTEN];                                   // maximal 10 karten
+    int punkte;                                                                 // startpunkte
+    int (*zugPointer)(Spielkarte *, Spielkarte *gespielteKarte, int zugAnzahl); // funktionspointer
 } Spieler;
 
 void initialisiereSpieler(Spieler *mensch, Spieler *computer);
 
 char *spielername(void);
 int spielerzug(Spielkarte *menschHandkarten, Spielkarte *gespielteKarte, int zugAnzahl);
+int auswahlHandkarte();
 
 void zufaelligeComputerStrategie(Spieler *computer);
 void vorbereitungStrategischerComputer(Spielkarte *computerHandkarten);
