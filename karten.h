@@ -48,7 +48,6 @@ void kartenstapelErstellen(Spielkarte *kartenStapel);
 void kartenMischen(Spielkarte *kartenStapel);
 void kartenAusteilen(Spielkarte *kartenStapel, Spielkarte *menschHandKarten, Spielkarte *computerHandkarten);
 
-void handkartenAnzeige(Spielkarte *menschHandkarten, int zugAnzahl);
 int auswahlHandkarte();
 
 void karteLegen();
