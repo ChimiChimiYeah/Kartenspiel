@@ -8,5 +8,6 @@
 
 void initialisiereKonsole();
 void handkartenAnzeige(const Spielkarte *handkarten, int zugAnzahl);
+void anzeigeGespielteComputerKarte(const Spielkarte computerKarte);
 
 #endif

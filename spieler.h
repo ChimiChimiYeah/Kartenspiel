@@ -6,8 +6,6 @@
 #include "karten.h"
 #include "ausgabe.h"
 
-#define RUNDEN_ANZAHL 10
-
 // Struktur und Funktionen für Spieler im Kartenspiel
 typedef struct
 {

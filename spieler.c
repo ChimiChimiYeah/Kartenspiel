@@ -57,7 +57,7 @@ void zufaelligeComputerStrategie(Spieler *computer)
     if (zufallsZahl != 0)
         sortiereHandkartenGrossNachKlein(computer->handkarten);
 
-    if (zufallsZahl == 3)
+    if (zufallsZahl == 2)
         sortiereHandkartenKleinsteGroesste(computer->handkarten);
 
     switch (zufallsZahl)
@@ -121,6 +121,7 @@ int einfacherStrategischerWechselnderComputer(Spielkarte *computerHandkarten, co
     (void)computerHandkarten;
     (void)gespielteKarte;
     (void)zugAnzahl;
+    anzeigeGespielteComputerKarte(computerHandkarten[0]);
     return 0;
 }
 

@@ -14,29 +14,38 @@ Parameter:
 */
 void handkartenAnzeige(const Spielkarte *handkarten, int anzahlHandkarten)
 {
-    for (int i = 0; i < anzahlHandkarten; i++)
+    for (int i = 0; i <= anzahlHandkarten; i++)
     {
         printf("+=====+  ");
     }
     printf("\n");
-    for (int i = 0; i < anzahlHandkarten; i++)
+    for (int i = 0; i <= anzahlHandkarten; i++)
     {
         printf("|%-2s  %s|  ", symbolWert[handkarten[i].kartenwert], symbolFarbe[handkarten[i].kartenfarbe]);
     }
     printf("\n");
-    for (int i = 0; i < anzahlHandkarten; i++)
+    for (int i = 0; i <= anzahlHandkarten; i++)
     {
         printf("|     |  ");
     }
     printf("\n");
-    for (int i = 0; i < anzahlHandkarten; i++)
+    for (int i = 0; i <= anzahlHandkarten; i++)
     {
         printf("|%s  %2s|  ", symbolFarbe[handkarten[i].kartenfarbe], symbolWert[handkarten[i].kartenwert]);
     }
     printf("\n");
-    for (int i = 0; i < anzahlHandkarten; i++)
+    for (int i = 0; i <= anzahlHandkarten; i++)
     {
         printf("+=====+  ");
     }
     printf("\n");
+}
+
+void anzeigeGespielteComputerKarte(const Spielkarte computerKarte)
+{
+    printf("+=====+\n");
+    printf("|%-2s  %s|\n", symbolWert[computerKarte.kartenwert], symbolFarbe[computerKarte.kartenfarbe]);
+    printf("|     |\n");
+    printf("|%s  %2s|\n", symbolFarbe[computerKarte.kartenfarbe], symbolWert[computerKarte.kartenwert]);
+    printf("+=====+\n");
 }
