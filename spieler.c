@@ -1,4 +1,5 @@
 #include "spieler.h"
+#include "konsole.h"
 
 // Initialisiere die Structs für Mensch und Computer
 // Parameter: Zwei "Spieler"-Structs
@@ -41,7 +42,6 @@ int spielerzug(Spielkarte *menschHandkarten, const Spielkarte *gespielteKarte, i
     handkartenAnzeige(menschHandkarten, anzahlHandkarten);
     indexGewaehlterKarte = auswahlHandkarte(anzahlHandkarten);
     return indexGewaehlterKarte;
-    // return 0;
 }
 
 // Wählt eine zufällige Strategie des Computer fest
@@ -116,7 +116,6 @@ int einfacherStrategischerWechselnderComputer(Spielkarte *computerHandkarten, co
     (void)computerHandkarten;
     (void)gespielteKarte;
     (void)zugAnzahl;
-    anzeigeGespielteComputerKarte(computerHandkarten[0]);
     return 0;
 }
 
@@ -124,6 +123,5 @@ int reaktiverComputer(Spielkarte *computerHandkarten, const Spielkarte *gespielt
 {
     // Implementation for handling the computer's move
     // reactive strategy for selecting a card to play
-    anzeigeGespielteComputerKarte(computerHandkarten[0]);
     return 0;
 }

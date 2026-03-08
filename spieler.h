@@ -4,10 +4,9 @@
 #include <time.h>
 #include <stdlib.h>
 #include "karten.h"
-#include "konsole.h"
 
 // Struktur und Funktionen für Spieler im Kartenspiel
-typedef struct
+typedef struct Spieler
 {
     char *spielername;                                                                // name des spielers
     Spielkarte handkarten[HANDKARTEN_ANZAHL];                                         // maximal 10 karten

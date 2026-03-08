@@ -48,6 +48,9 @@ void kartenstapelErstellen(Spielkarte *kartenStapel);
 void kartenMischen(Spielkarte *kartenStapel);
 void kartenAusteilen(Spielkarte *kartenStapel, Spielkarte *menschHandKarten, Spielkarte *computerHandkarten);
 
-void karteLegen();
+// Forward declaration
+struct Spieler;
+
+void karteLegen(struct Spieler *spieler, int anzahlHandkarten, int indexGespielteKarte);
 
 #endif

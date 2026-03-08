@@ -4,6 +4,7 @@ void initialisiereKonsole()
 {
     system("cls");
     SetConsoleOutputCP(CP_UTF8);
+    fflush(stdin);
 }
 
 /*
@@ -62,7 +63,7 @@ int auswahlHandkarte(int anzahlHandkarten)
     return index;
 }
 
-void anzeigeGespielteComputerKarte(const Spielkarte computerKarte)
+void anzeigeGespielteKarte(const Spielkarte computerKarte)
 {
     printf("Der Computer hat gelegt:\n");
     printf("+=====+\n");

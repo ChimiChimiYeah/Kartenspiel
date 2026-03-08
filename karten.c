@@ -1,4 +1,5 @@
 #include "karten.h"
+#include "spieler.h"
 
 const char *symbolFarbe[] = {
     "♦",
@@ -67,4 +68,8 @@ void kartenAusteilen(Spielkarte *kartenStapel, Spielkarte *menschHandkarten, Spi
         computerHandkarten[i] = kartenStapel[2 * i];
         menschHandkarten[i] = kartenStapel[2 * i + 1];
     }
+}
+
+void karteLegen(struct Spieler *spieler, int anzahlHandkarten, int indexGespielteKarte)
+{
 }

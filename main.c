@@ -13,6 +13,9 @@ int main(void)
 {
     Spieler spieler[2];
     int spielerAmZug = COMPUTER;
+    int indexGespielteKarte;
+    Spielkarte ersteKarte;
+    Spielkarte zweiteKarte;
 
     srand(time(NULL));
     initialisiereKonsole();
@@ -24,12 +27,15 @@ int main(void)
     // for (int zugAnzahl = 1; zugAnzahl < RUNDEN_ANZAHL; zugAnzahl++)
     for (int zugAnzahl = 1; zugAnzahl < 2; zugAnzahl++)
     {
-        Spielkarte karte = {
-            .kartenfarbe = 0,
-            .kartenwert = 0,
-        };
-        spieler[spielerAmZug].zugPointer(spieler[spielerAmZug].handkarten, &karte, RUNDEN_ANZAHL - zugAnzahl);
-        spieler[1 - spielerAmZug].zugPointer(spieler[1 - spielerAmZug].handkarten, &karte, RUNDEN_ANZAHL - zugAnzahl);
+        int anzahlHandkarten = RUNDEN_ANZAHL - zugAnzahl;
+
+        indexGespielteKarte = spieler[spielerAmZug].zugPointer(spieler[spielerAmZug].handkarten, NULL, anzahlHandkarten);
+        ersteKarte = spieler[spielerAmZug].handkarten[indexGespielteKarte];
+        karteLegen(&spieler[spielerAmZug], anzahlHandkarten, indexGespielteKarte);
+
+        indexGespielteKarte = spieler[1 - spielerAmZug].zugPointer(spieler[1 - spielerAmZug].handkarten, &ersteKarte, anzahlHandkarten);
+        zweiteKarte = spieler[spielerAmZug].handkarten[indexGespielteKarte];
+        karteLegen(&spieler[1 - spielerAmZug], anzahlHandkarten, indexGespielteKarte);
     }
     printf("Spieler: %s, Punkte: %d\n", spieler[MENSCH].spielername, spieler[MENSCH].punkte);
     printf("Computer: %s, Punkte: %d\n", spieler[COMPUTER].spielername, spieler[COMPUTER].punkte);
