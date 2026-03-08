@@ -11,11 +11,12 @@
 
 int main(void)
 {
-    Spieler spieler[2];
-    int spielerAmZug = COMPUTER;
-    int indexGespielteKarte;
-    Spielkarte ersteKarte;
-    Spielkarte zweiteKarte;
+    Spieler spieler[2];          // Liste mit den Spieler Structs
+    int spielerAmZug = COMPUTER; // gibt an, welcher Spieler am Zug ist. Anfangs der Computer
+    int indexGespielteKarte;     // gibt den Index der gelegten Karte in der Liste Handkarten an
+    int spielerStich;            // gibt an, welcher Spieler den Stich gewonnen hat
+    Spielkarte ersteKarte;       // gibt die erste gelegte Karte der Runde an
+    Spielkarte zweiteKarte;      // gibt die zweite gelegte Karte der Runde an
 
     srand(time(NULL));
     initialisiereKonsole();
@@ -34,8 +35,12 @@ int main(void)
         karteLegen(&spieler[spielerAmZug], anzahlHandkarten, indexGespielteKarte);
 
         indexGespielteKarte = spieler[1 - spielerAmZug].zugPointer(spieler[1 - spielerAmZug].handkarten, &ersteKarte, anzahlHandkarten);
-        zweiteKarte = spieler[spielerAmZug].handkarten[indexGespielteKarte];
+        zweiteKarte = spieler[1 - spielerAmZug].handkarten[indexGespielteKarte];
         karteLegen(&spieler[1 - spielerAmZug], anzahlHandkarten, indexGespielteKarte);
+
+        spielerStich = kartenStich(spielerAmZug, ersteKarte.kartenwert, zweiteKarte.kartenwert);
+        spieler[spielerStich].punkte += ersteKarte.kartenwert + zweiteKarte.kartenwert;
+        spielerAmZug = spielerStich;
     }
     printf("Spieler: %s, Punkte: %d\n", spieler[MENSCH].spielername, spieler[MENSCH].punkte);
     printf("Computer: %s, Punkte: %d\n", spieler[COMPUTER].spielername, spieler[COMPUTER].punkte);

@@ -63,9 +63,9 @@ int auswahlHandkarte(int anzahlHandkarten)
     return index;
 }
 
-void anzeigeGespielteKarte(const Spielkarte computerKarte)
+void anzeigeGespielteKarte(const char *spielername, const Spielkarte computerKarte)
 {
-    printf("Der Computer hat gelegt:\n");
+    printf("%s hat gelegt:\n", spielername);
     printf("+=====+\n");
     printf("|%-2s  %s|\n", symbolWert[computerKarte.kartenwert], symbolFarbe[computerKarte.kartenfarbe]);
     printf("|     |\n");

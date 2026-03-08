@@ -1,5 +1,6 @@
 #include "karten.h"
 #include "spieler.h"
+#include "konsole.h"
 
 const char *symbolFarbe[] = {
     "♦",
@@ -72,4 +73,13 @@ void kartenAusteilen(Spielkarte *kartenStapel, Spielkarte *menschHandkarten, Spi
 
 void karteLegen(struct Spieler *spieler, int anzahlHandkarten, int indexGespielteKarte)
 {
+    anzeigeGespielteKarte(spieler->spielername, spieler->handkarten[indexGespielteKarte]);
+}
+
+int kartenStich(int spielerAmZug, int kartenwertErsteKarte, int kartenwertZweiteKarte)
+{
+    if (kartenwertErsteKarte >= kartenwertZweiteKarte)
+        return spielerAmZug;
+    else
+        return 1 - spielerAmZug;
 }

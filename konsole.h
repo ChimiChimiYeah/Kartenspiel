@@ -8,6 +8,6 @@
 void initialisiereKonsole();
 void handkartenAnzeige(const Spielkarte *handkarten, int anzahlHandkarten);
 int auswahlHandkarte(int anzahlHandkarten);
-void anzeigeGespielteComputerKarte(const Spielkarte computerKarte);
+void anzeigeGespielteKarte(const char *spielername, const Spielkarte computerKarte);
 
 #endif
