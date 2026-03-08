@@ -39,14 +39,9 @@ int spielerzug(Spielkarte *menschHandkarten, const Spielkarte *gespielteKarte, i
     int indexGewaehlterKarte;
 
     handkartenAnzeige(menschHandkarten, anzahlHandkarten);
-    indexGewaehlterKarte = auswahlHandkarte();
+    indexGewaehlterKarte = auswahlHandkarte(anzahlHandkarten);
     return indexGewaehlterKarte;
-}
-
-// Auswahl einer Handkarte des Spieles
-int auswahlHandkarte()
-{
-    return 0;
+    // return 0;
 }
 
 // Wählt eine zufällige Strategie des Computer fest
@@ -129,5 +124,6 @@ int reaktiverComputer(Spielkarte *computerHandkarten, const Spielkarte *gespielt
 {
     // Implementation for handling the computer's move
     // reactive strategy for selecting a card to play
+    anzeigeGespielteComputerKarte(computerHandkarten[0]);
     return 0;
 }

@@ -4,7 +4,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include "karten.h"
-#include "ausgabe.h"
+#include "konsole.h"
 
 // Struktur und Funktionen für Spieler im Kartenspiel
 typedef struct
@@ -19,7 +19,6 @@ void initialisiereSpieler(Spieler *mensch, Spieler *computer);
 
 char *spielername(void);
 int spielerzug(Spielkarte *menschHandkarten, const Spielkarte *gespielteKarte, int zugAnzahl);
-int auswahlHandkarte();
 
 void zufaelligeComputerStrategie(Spieler *computer);
 void sortiereHandkartenGrossNachKlein(Spielkarte *computerHandkarten);

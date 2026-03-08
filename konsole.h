@@ -7,7 +7,8 @@
 #include "karten.h"
 
 void initialisiereKonsole();
-void handkartenAnzeige(const Spielkarte *handkarten, int zugAnzahl);
+void handkartenAnzeige(const Spielkarte *handkarten, int anzahlHandkarten);
+int auswahlHandkarte(int anzahlHandkarten);
 void anzeigeGespielteComputerKarte(const Spielkarte computerKarte);
 
 #endif

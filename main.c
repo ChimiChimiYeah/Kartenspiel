@@ -3,7 +3,7 @@
 #include <windows.h>
 #include "karten.h"
 #include "spieler.h"
-#include "ausgabe.h"
+#include "konsole.h"
 
 #define RUNDEN_ANZAHL 10 // Anzahl der Runden
 #define MENSCH 0         // Index des Menschen in der Liste "spieler"
@@ -15,7 +15,7 @@ int main(void)
     int spielerAmZug = COMPUTER;
 
     srand(time(NULL));
-    // initialisiereKonsole();
+    initialisiereKonsole();
     initialisiereSpieler(&spieler[MENSCH], &spieler[COMPUTER]);
 
     kartenVergabe(&spieler[MENSCH].handkarten[0], &spieler[COMPUTER].handkarten[0]);
@@ -24,7 +24,6 @@ int main(void)
     // for (int zugAnzahl = 1; zugAnzahl < RUNDEN_ANZAHL; zugAnzahl++)
     for (int zugAnzahl = 1; zugAnzahl < 2; zugAnzahl++)
     {
-
         Spielkarte karte = {
             .kartenfarbe = 0,
             .kartenwert = 0,
