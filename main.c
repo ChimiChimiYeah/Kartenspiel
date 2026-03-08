@@ -25,8 +25,7 @@ int main(void)
     kartenVergabe(&spieler[MENSCH].handkarten[0], &spieler[COMPUTER].handkarten[0]);
     zufaelligeComputerStrategie(&spieler[COMPUTER]);
 
-    // for (int zugAnzahl = 1; zugAnzahl < RUNDEN_ANZAHL; zugAnzahl++)
-    for (int zugAnzahl = 1; zugAnzahl < 2; zugAnzahl++)
+    for (int zugAnzahl = 1; zugAnzahl < RUNDEN_ANZAHL; zugAnzahl++)
     {
         int anzahlHandkarten = RUNDEN_ANZAHL - zugAnzahl;
 

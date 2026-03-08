@@ -51,5 +51,6 @@ void kartenAusteilen(Spielkarte *kartenStapel, Spielkarte *menschHandKarten, Spi
 struct Spieler;
 void karteLegen(struct Spieler *spieler, int anzahlHandkarten, int indexGespielteKarte);
 int kartenStich(int spielerAmZug, int kartenwertErsteKarte, int kartenwertZweiteKarte);
+void entferneKarteVonHand(Spielkarte *handkarten, int anzahlHandkarten, int indexGespielteKarte);
 
 #endif
