@@ -1,31 +1,42 @@
 #include "ausgabe.h"
 
-// setzt den Cursor auf (x, y) im Terminal
-void gotoxy(short x, short y)
-{
-    HANDLE hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
-    COORD position = {x, y};
-    SetConsoleCursorPosition(hStdout, position);
-}
-
 void initialisiereKonsole()
 {
-    system("cls");
-    SetConsoleOutputCP(CP_UTF8);
+    // system("cls");
+    // SetConsoleOutputCP(CP_UTF8);
 }
 
-void handkartenAnzeige(const Spielkarte *handkarten, int zugAnzahl)
+/*
+Gibt die Handkarten des Spielers im Terminal aus
+Parameter:
+- Struct "Spielkarte" mit den Handkarten des Spielers
+- int anzahlHandkarten, um alle Handkarten des Spielers auszugeben
+*/
+void handkartenAnzeige(const Spielkarte *handkarten, int anzahlHandkarten)
 {
-    int x = 0;
-    int y = 0;
-    for (int i = 0; i < zugAnzahl; i++)
+    for (int i = 0; i < anzahlHandkarten; i++)
     {
-        gotoxy(x + i * 8, y);
-        printf("+=====+");
-        /*printf("|     |\n");
-        printf("|     |\n");
-        printf("|     |\n");
-        printf("|     |\n");
-        printf("+=====+\n");*/
+        printf("+=====+  ");
     }
+    printf("\n");
+    for (int i = 0; i < anzahlHandkarten; i++)
+    {
+        printf("|%-2s  %s|  ", symbolWert[handkarten[i].kartenwert], symbolFarbe[handkarten[i].kartenfarbe]);
+    }
+    printf("\n");
+    for (int i = 0; i < anzahlHandkarten; i++)
+    {
+        printf("|     |  ");
+    }
+    printf("\n");
+    for (int i = 0; i < anzahlHandkarten; i++)
+    {
+        printf("|%s  %2s|  ", symbolFarbe[handkarten[i].kartenfarbe], symbolWert[handkarten[i].kartenwert]);
+    }
+    printf("\n");
+    for (int i = 0; i < anzahlHandkarten; i++)
+    {
+        printf("+=====+  ");
+    }
+    printf("\n");
 }

@@ -1,48 +1,57 @@
 #include "spieler.h"
 
+// Initialisiere die Structs für Mensch und Computer
+// Parameter: Zwei "Spieler"-Structs
 void initialisiereSpieler(Spieler *mensch, Spieler *computer)
 {
-    // Implementation for initializing player data
-    // Initialize human player
+    // Initialisiere den Menschen
     mensch->spielername = spielername();
     // Handkarten werden später verteilt
     mensch->punkte = 0;
     mensch->zugPointer = &spielerzug;
 
-    // Initialize computer player
+    // Initialisere den Computer
     computer->spielername = "Computer";
     // Handkarten werden später verteilt
     computer->punkte = 0;
     // Computergegner wird gesetzt, wenn Handkarten verteilt sind
 }
 
+// Verlangt einen Spielernamen
+// Return: Spielername
 char *spielername(void)
 {
-    // Implementation for getting and setting the player's name
     return "Mensch";
 }
 
-int spielerzug(Spielkarte *menschHandkarten, const Spielkarte *gespielteKarte, int zugAnzahl)
+/*
+// Implemention des Zuges des Menschen
+ Zeigt die Handkarten des Spielers an und lässt ihn eine wählen
+ Paramter:
+ - Struct "Spielkarte" mit den Handkarten des Spielers
+ - Struct "SPielkarte" wird in dieser Funktion nicht benötigt
+ - int anzahlHandkarten
+ Return: den Index der gewählten Karte
+*/
+int spielerzug(Spielkarte *menschHandkarten, const Spielkarte *gespielteKarte, int anzahlHandkarten)
 {
-    // Implementation for handling the player's move
     (void)gespielteKarte;
     int indexGewaehlterKarte;
 
-    handkartenAnzeige(menschHandkarten, zugAnzahl);
+    handkartenAnzeige(menschHandkarten, anzahlHandkarten);
     indexGewaehlterKarte = auswahlHandkarte();
     return indexGewaehlterKarte;
 }
 
+// Auswahl einer Handkarte des Spieles
 int auswahlHandkarte()
 {
     return 0;
 }
 
+// Wählt eine zufällige Strategie des Computer fest
 void zufaelligeComputerStrategie(Spieler *computer)
 {
-    // implementation to set a random computer strategy
-    // random selection of one of the four strategies
-    // einfach, strategisch, wechselnd, reaktiv
     int zufallsZahl = rand() % 4;
 
     if (zufallsZahl != 0)
@@ -67,10 +76,9 @@ void zufaelligeComputerStrategie(Spieler *computer)
     }
 }
 
+// Sortiert Handkarten von kleinstem Wert nach größtem Wert
 void sortiereHandkartenGrossNachKlein(Spielkarte *computerHandkarten)
 {
-    // implmentation for sorting the computer's hand cards
-    // sorting cards in descending order based on their value
     for (int i = 0; i < HANDKARTEN_ANZAHL - 1; i++)
     {
         for (int j = i + 1; j < HANDKARTEN_ANZAHL; j++)
@@ -85,10 +93,11 @@ void sortiereHandkartenGrossNachKlein(Spielkarte *computerHandkarten)
     }
 }
 
+// Sortiert Handkarten wie folgt:
+// Kleinster Wert -> Größter Wert -> Zweitkleinster Wert -> Zweitgrößter Wert -> ...
+//
 void sortiereHandkartenKleinsteGroesste(Spielkarte *computerHandkarten)
 {
-    // implementation for sorting the computer's hand cards
-    // sorting cards to alternate between low and high value cards
     Spielkarte sortierteHandkarten[10];
     for (int i = 0; i < HANDKARTEN_ANZAHL / 2; i++)
     {

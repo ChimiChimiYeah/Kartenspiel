@@ -5,6 +5,8 @@
 #include "spieler.h"
 #include "ausgabe.h"
 
+#define RUNDEN_ANZAHL 10
+
 int main(void)
 {
     Spieler mensch;
@@ -16,13 +18,14 @@ int main(void)
     kartenVergabe(&mensch.handkarten[0], &computer.handkarten[0]);
     zufaelligeComputerStrategie(&computer);
 
-    for (int zugAnzahl = 1; zugAnzahl < RUNDEN_ANZAHL + 1; zugAnzahl++)
+    // for (int zugAnzahl = 1; zugAnzahl < RUNDEN_ANZAHL; zugAnzahl++)
+    for (int zugAnzahl = 1; zugAnzahl < 2; zugAnzahl++)
     {
         Spielkarte karte = {
             .kartenfarbe = 0,
             .kartenwert = 0,
         };
-        mensch.zugPointer(mensch.handkarten, &karte, zugAnzahl);
+        mensch.zugPointer(mensch.handkarten, &karte, RUNDEN_ANZAHL - zugAnzahl);
     }
     printf("Spieler: %s, Punkte: %d\n", mensch.spielername, mensch.punkte);
     printf("Computer: %s, Punkte: %d\n", computer.spielername, computer.punkte);
