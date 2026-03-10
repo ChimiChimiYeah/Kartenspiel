@@ -22,7 +22,7 @@ void initialisiereSpieler(Spieler *mensch, Spieler *computer)
 // Return: Spielername
 char *spielername(void)
 {
-    return "Mensch";
+    return auswahlSpielername();
 }
 
 /*
@@ -109,19 +109,27 @@ void sortiereHandkartenKleinsteGroesste(Spielkarte *computerHandkarten)
     }
 }
 
-int einfacherStrategischerWechselnderComputer(Spielkarte *computerHandkarten, const Spielkarte *gespielteKarte, int zugAnzahl) // zweiter Parameter für gelegte Karte vom Menschen
+int einfacherStrategischerWechselnderComputer(Spielkarte *computerHandkarten, const Spielkarte *gespielteKarte, int anzahlHandkarten) // zweiter Parameter für gelegte Karte vom Menschen
 {
     // Implementation for preparing a simple strategic changing computer player
     // basic strategy for selecting a card to play
     (void)computerHandkarten;
     (void)gespielteKarte;
-    (void)zugAnzahl;
+    (void)anzahlHandkarten;
     return 0;
 }
 
-int reaktiverComputer(Spielkarte *computerHandkarten, const Spielkarte *gespielteKarte, int zugAnzahl) // zweiter Param für gelegte karte des menschen
+int reaktiverComputer(Spielkarte *computerHandkarten, const Spielkarte *gespielteKarte, int anzahlHandkarten) // zweiter Param für gelegte karte des menschen
 {
-    // Implementation for handling the computer's move
-    // reactive strategy for selecting a card to play
-    return 0;
+    if (gespielteKarte == NULL)
+        return 0;
+    else
+    {
+        for (int i = 0; i < anzahlHandkarten + 1; i++)
+        {
+            if (gespielteKarte->kartenwert < computerHandkarten[i]->kartenwert)
+                return i;
+        }
+        return 0;
+    }
 }

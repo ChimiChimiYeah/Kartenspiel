@@ -10,7 +10,7 @@
                 "main.c",
                 "karten.c",
                 "spieler.c",
-                "ausgabe.c",
+                "konsole.c",
                 "-o",
                 "${fileDirname}\\main.exe"
             ],

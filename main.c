@@ -1,6 +1,5 @@
 #include <time.h>
 #include <stdlib.h>
-#include <windows.h>
 #include "karten.h"
 #include "spieler.h"
 #include "konsole.h"
@@ -25,10 +24,11 @@ int main(void)
     kartenVergabe(&spieler[MENSCH].handkarten[0], &spieler[COMPUTER].handkarten[0]);
     zufaelligeComputerStrategie(&spieler[COMPUTER]);
 
-    for (int zugAnzahl = 1; zugAnzahl < RUNDEN_ANZAHL; zugAnzahl++)
+    for (int zugAnzahl = 1; zugAnzahl <= RUNDEN_ANZAHL; zugAnzahl++)
     {
         int anzahlHandkarten = RUNDEN_ANZAHL - zugAnzahl;
 
+        anzeigeZug(zugAnzahl);
         indexGespielteKarte = spieler[spielerAmZug].zugPointer(spieler[spielerAmZug].handkarten, NULL, anzahlHandkarten);
         ersteKarte = spieler[spielerAmZug].handkarten[indexGespielteKarte];
         karteLegen(&spieler[spielerAmZug], anzahlHandkarten, indexGespielteKarte);
@@ -38,11 +38,12 @@ int main(void)
         karteLegen(&spieler[1 - spielerAmZug], anzahlHandkarten, indexGespielteKarte);
 
         spielerStich = kartenStich(spielerAmZug, ersteKarte.kartenwert, zweiteKarte.kartenwert);
-        spieler[spielerStich].punkte += ersteKarte.kartenwert + zweiteKarte.kartenwert;
+        spieler[spielerStich].punkte += kartenPunkte(ersteKarte.kartenwert) + kartenPunkte(zweiteKarte.kartenwert);
+        anzeigeStichSieger(spieler[spielerStich].spielername);
         spielerAmZug = spielerStich;
     }
-    printf("Spieler: %s, Punkte: %d\n", spieler[MENSCH].spielername, spieler[MENSCH].punkte);
-    printf("Computer: %s, Punkte: %d\n", spieler[COMPUTER].spielername, spieler[COMPUTER].punkte);
+    anzeigePunkte(spieler[MENSCH].spielername, spieler[MENSCH].punkte, spieler[COMPUTER].spielername, spieler[COMPUTER].punkte);
+    anzeigeGewinner(spieler[MENSCH].spielername, spieler[MENSCH].punkte, spieler[COMPUTER].spielername, spieler[COMPUTER].punkte);
 
     return 0;
 }

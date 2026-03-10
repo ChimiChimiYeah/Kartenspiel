@@ -34,7 +34,7 @@ void kartenstapelErstellen(Spielkarte *kartenStapel)
             Spielkarte karte =
                 {
                     .kartenfarbe = (Kartenfarbe)i,
-                    .kartenwert = (Kartenwert)j,
+                    .kartenwert = (Kartenwert)(j + 2),
                 };
             // Add card to deck
             kartenStapel[i * WERTE_ANZAHL + j] = karte;
@@ -89,5 +89,22 @@ void entferneKarteVonHand(Spielkarte *handkarten, int anzahlHandkarten, int inde
     for (int i = indexGespielteKarte; i < anzahlHandkarten - 1; i++)
     {
         handkarten[i] = handkarten[i + 1];
+    }
+}
+
+int kartenPunkte(int kartenwert)
+{
+    switch (kartenwert)
+    {
+    case 11:
+        return 2;
+    case 12:
+        return 3;
+    case 13:
+        return 4;
+    case 14:
+        return 11;
+    default:
+        return kartenwert;
     }
 }

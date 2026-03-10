@@ -19,7 +19,7 @@ typedef enum
 
 typedef enum
 {
-    Zwei,
+    Zwei = 2,
     Drei,
     Vier,
     Fuenf,
@@ -52,5 +52,6 @@ struct Spieler;
 void karteLegen(struct Spieler *spieler, int anzahlHandkarten, int indexGespielteKarte);
 int kartenStich(int spielerAmZug, int kartenwertErsteKarte, int kartenwertZweiteKarte);
 void entferneKarteVonHand(Spielkarte *handkarten, int anzahlHandkarten, int indexGespielteKarte);
+int kartenPunkte(int kartenwert);
 
 #endif

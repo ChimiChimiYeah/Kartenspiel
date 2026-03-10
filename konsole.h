@@ -6,8 +6,13 @@
 #include "karten.h"
 
 void initialisiereKonsole();
+char *auswahlSpielername(void);
+void anzeigeZug(int zugAnzahl);
 void handkartenAnzeige(const Spielkarte *handkarten, int anzahlHandkarten);
 int auswahlHandkarte(int anzahlHandkarten);
 void anzeigeGespielteKarte(const char *spielername, const Spielkarte computerKarte);
+void anzeigeStichSieger(const char *spielername);
+void anzeigePunkte(const char *ersterSpielername, int ersterSpielerPunkte, const char *computerSpielername, int computerSpielerPunkte);
+void anzeigeGewinner(const char *ersterSpielername, int ersterSpielerPunkte, const char *computerSpielername, int computerSpielerPunkte);
 
 #endif
