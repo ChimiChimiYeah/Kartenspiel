@@ -30,7 +30,7 @@ char *spielername(void)
  Zeigt die Handkarten des Spielers an und lässt ihn eine wählen
  Paramter:
  - Struct "Spielkarte" mit den Handkarten des Spielers
- - Struct "SPielkarte" wird in dieser Funktion nicht benötigt
+ - Struct "Spielkarte" wird in dieser Funktion nicht benötigt
  - int maxHandkartenIndex
  Return: den Index der gewählten Karte
 */

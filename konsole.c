@@ -7,7 +7,6 @@ void initialisiereKonsole()
 {
     system("cls");
     SetConsoleOutputCP(CP_UTF8);
-    fflush(stdin);
 }
 
 char *auswahlSpielername(void)
@@ -99,9 +98,11 @@ int auswahlHandkarte(int maxHandkartenIndex)
     while (scanf("%d", &index) != 1 || index < 0 || index > maxHandkartenIndex)
     {
         while ((c = getchar()) != '\n' && c != EOF)
-            ; // clear buffer
+            ;
         printf("Ungültige Eingabe. Bitte Index 0-%d eingeben: ", maxHandkartenIndex);
     }
+    while ((c = getchar()) != '\n' && c != EOF)
+        ;
     return index;
 }
 
