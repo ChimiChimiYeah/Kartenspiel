@@ -17,12 +17,12 @@ typedef struct Spieler
 void initialisiereSpieler(Spieler *mensch, Spieler *computer);
 
 char *spielername(void);
-int spielerzug(Spielkarte *menschHandkarten, const Spielkarte *gespielteKarte, int anzahlHandkarten);
+int spielerzug(Spielkarte *menschHandkarten, const Spielkarte *gespielteKarte, int maxHandkartenIndex);
 
 void zufaelligeComputerStrategie(Spieler *computer);
 void sortiereHandkartenGrossNachKlein(Spielkarte *computerHandkarten);
 void sortiereHandkartenKleinsteGroesste(Spielkarte *computerHandkarten);
-int einfacherStrategischerWechselnderComputer(Spielkarte *computerHandkarten, const Spielkarte *gespielteKarte, int anzahlHandkarten);
-int reaktiverComputer(Spielkarte *computerHandkarten, const Spielkarte *gespielteKarte, int anzahlHandkarten);
+int einfacherStrategischerWechselnderComputer(Spielkarte *computerHandkarten, const Spielkarte *gespielteKarte, int maxHandkartenIndex);
+int reaktiverComputer(Spielkarte *computerHandkarten, const Spielkarte *gespielteKarte, int maxHandkartenIndex);
 
 #endif

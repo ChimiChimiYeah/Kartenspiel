@@ -31,16 +31,16 @@ char *spielername(void)
  Paramter:
  - Struct "Spielkarte" mit den Handkarten des Spielers
  - Struct "SPielkarte" wird in dieser Funktion nicht benötigt
- - int anzahlHandkarten
+ - int maxHandkartenIndex
  Return: den Index der gewählten Karte
 */
-int spielerzug(Spielkarte *menschHandkarten, const Spielkarte *gespielteKarte, int anzahlHandkarten)
+int spielerzug(Spielkarte *menschHandkarten, const Spielkarte *gespielteKarte, int maxHandkartenIndex)
 {
     (void)gespielteKarte;
     int indexGewaehlterKarte;
 
-    handkartenAnzeige(menschHandkarten, anzahlHandkarten);
-    indexGewaehlterKarte = auswahlHandkarte(anzahlHandkarten);
+    handkartenAnzeige(menschHandkarten, maxHandkartenIndex);
+    indexGewaehlterKarte = auswahlHandkarte(maxHandkartenIndex);
     return indexGewaehlterKarte;
 }
 
@@ -109,25 +109,25 @@ void sortiereHandkartenKleinsteGroesste(Spielkarte *computerHandkarten)
     }
 }
 
-int einfacherStrategischerWechselnderComputer(Spielkarte *computerHandkarten, const Spielkarte *gespielteKarte, int anzahlHandkarten) // zweiter Parameter für gelegte Karte vom Menschen
+int einfacherStrategischerWechselnderComputer(Spielkarte *computerHandkarten, const Spielkarte *gespielteKarte, int maxHandkartenIndex) // zweiter Parameter für gelegte Karte vom Menschen
 {
     // Implementation for preparing a simple strategic changing computer player
     // basic strategy for selecting a card to play
     (void)computerHandkarten;
     (void)gespielteKarte;
-    (void)anzahlHandkarten;
+    (void)maxHandkartenIndex;
     return 0;
 }
 
-int reaktiverComputer(Spielkarte *computerHandkarten, const Spielkarte *gespielteKarte, int anzahlHandkarten) // zweiter Param für gelegte karte des menschen
+int reaktiverComputer(Spielkarte *computerHandkarten, const Spielkarte *gespielteKarte, int maxHandkartenIndex) // zweiter Param für gelegte karte des menschen
 {
     if (gespielteKarte == NULL)
         return 0;
     else
     {
-        for (int i = 0; i < anzahlHandkarten + 1; i++)
+        for (int i = 0; i < maxHandkartenIndex + 1; i++)
         {
-            if (gespielteKarte->kartenwert < computerHandkarten[i]->kartenwert)
+            if (gespielteKarte->kartenwert < computerHandkarten[i].kartenwert)
                 return i;
         }
         return 0;

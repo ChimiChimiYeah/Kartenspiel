@@ -46,61 +46,61 @@ char *auswahlSpielername(void)
 
 void anzeigeZug(int zugAnzahl)
 {
-    prinf("[Zug %d]", &zugAnzahl)
+    printf("[Zug %d]\n", zugAnzahl);
 }
 
 /*
 Gibt die Handkarten des Spielers im Terminal aus
 Parameter:
 - Struct "Spielkarte" mit den Handkarten des Spielers
-- int anzahlHandkarten, um alle Handkarten des Spielers auszugeben
+- int maxHandkartenIndex, um alle Handkarten des Spielers auszugeben
 */
-void handkartenAnzeige(const Spielkarte *handkarten, int anzahlHandkarten)
+void handkartenAnzeige(const Spielkarte *handkarten, int maxHandkartenIndex)
 {
     printf("Deine Handkarten sind:\n");
-    for (int i = 0; i < anzahlHandkarten + 1; i++)
+    for (int i = 0; i < maxHandkartenIndex + 1; i++)
     {
         printf("+=====+   ");
     }
     printf("\n");
-    for (int i = 0; i < anzahlHandkarten + 1; i++)
+    for (int i = 0; i < maxHandkartenIndex + 1; i++)
     {
         printf("|%-2s  %s|   ", symbolWert[handkarten[i].kartenwert - 2], symbolFarbe[handkarten[i].kartenfarbe]);
     }
     printf("\n");
-    for (int i = 0; i < anzahlHandkarten + 1; i++)
+    for (int i = 0; i < maxHandkartenIndex + 1; i++)
     {
         printf("|     |   ");
     }
     printf("\n");
-    for (int i = 0; i < anzahlHandkarten + 1; i++)
+    for (int i = 0; i < maxHandkartenIndex + 1; i++)
     {
         printf("|%s  %2s|   ", symbolFarbe[handkarten[i].kartenfarbe], symbolWert[handkarten[i].kartenwert - 2]);
     }
     printf("\n");
-    for (int i = 0; i < anzahlHandkarten + 1; i++)
+    for (int i = 0; i < maxHandkartenIndex + 1; i++)
     {
         printf("+=====+   ");
     }
     printf("\n");
-    for (int i = 0; i < anzahlHandkarten + 1; i++)
+    for (int i = 0; i < maxHandkartenIndex + 1; i++)
     {
         printf("Index: %d  ", i);
     }
     printf("\n");
 }
 
-int auswahlHandkarte(int anzahlHandkarten)
+int auswahlHandkarte(int maxHandkartenIndex)
 {
     int index;
     int c;
     printf("Schreibe den Index der Karte, die du legen willst: ");
     fflush(stdout);
-    while (scanf("%d", &index) != 1 || index < 0 || index > anzahlHandkarten)
+    while (scanf("%d", &index) != 1 || index < 0 || index > maxHandkartenIndex)
     {
         while ((c = getchar()) != '\n' && c != EOF)
             ; // clear buffer
-        printf("Ungültige Eingabe. Bitte Index 0-%d eingeben: ", anzahlHandkarten);
+        printf("Ungültige Eingabe. Bitte Index 0-%d eingeben: ", maxHandkartenIndex);
     }
     return index;
 }
@@ -123,8 +123,8 @@ void anzeigeStichSieger(const char *spielername)
 void anzeigePunkte(const char *ersterSpielername, int ersterSpielerPunkte, const char *computerSpielername, int computerSpielerPunkte)
 {
     printf("Endstand:\n");
-    printf("%s hat %d Punkt(e) erzielt.", ersterSpielername, &ersterSpielerPunkte);
-    printf("%s hat %d Punkt(e) erzielt.", computerSpielername, &computerSpielerPunkte);
+    printf("%s hat %d Punkt(e) erzielt.\n", ersterSpielername, ersterSpielerPunkte);
+    printf("%s hat %d Punkt(e) erzielt.\n", computerSpielername, computerSpielerPunkte);
 }
 
 void anzeigeGewinner(const char *ersterSpielername, int ersterSpielerPunkte, const char *computerSpielername, int computerSpielerPunkte)
@@ -134,5 +134,5 @@ void anzeigeGewinner(const char *ersterSpielername, int ersterSpielerPunkte, con
     else if (computerSpielerPunkte > ersterSpielerPunkte)
         printf("Leider verloren! %s hat das Spiel gewonnen!", computerSpielername);
     else
-        printf("Unentschieden! Ihr habt gleich viele Punkte!");
+        printf("Ihr habt gleich viele Punkte! Damit gewinnt %s!", ersterSpielername);
 }

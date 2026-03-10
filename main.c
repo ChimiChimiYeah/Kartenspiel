@@ -26,16 +26,16 @@ int main(void)
 
     for (int zugAnzahl = 1; zugAnzahl <= RUNDEN_ANZAHL; zugAnzahl++)
     {
-        int anzahlHandkarten = RUNDEN_ANZAHL - zugAnzahl;
+        int maxHandkartenIndex = RUNDEN_ANZAHL - zugAnzahl;
 
         anzeigeZug(zugAnzahl);
-        indexGespielteKarte = spieler[spielerAmZug].zugPointer(spieler[spielerAmZug].handkarten, NULL, anzahlHandkarten);
+        indexGespielteKarte = spieler[spielerAmZug].zugPointer(spieler[spielerAmZug].handkarten, NULL, maxHandkartenIndex);
         ersteKarte = spieler[spielerAmZug].handkarten[indexGespielteKarte];
-        karteLegen(&spieler[spielerAmZug], anzahlHandkarten, indexGespielteKarte);
+        karteLegen(&spieler[spielerAmZug], maxHandkartenIndex, indexGespielteKarte);
 
-        indexGespielteKarte = spieler[1 - spielerAmZug].zugPointer(spieler[1 - spielerAmZug].handkarten, &ersteKarte, anzahlHandkarten);
+        indexGespielteKarte = spieler[1 - spielerAmZug].zugPointer(spieler[1 - spielerAmZug].handkarten, &ersteKarte, maxHandkartenIndex);
         zweiteKarte = spieler[1 - spielerAmZug].handkarten[indexGespielteKarte];
-        karteLegen(&spieler[1 - spielerAmZug], anzahlHandkarten, indexGespielteKarte);
+        karteLegen(&spieler[1 - spielerAmZug], maxHandkartenIndex, indexGespielteKarte);
 
         spielerStich = kartenStich(spielerAmZug, ersteKarte.kartenwert, zweiteKarte.kartenwert);
         spieler[spielerStich].punkte += kartenPunkte(ersteKarte.kartenwert) + kartenPunkte(zweiteKarte.kartenwert);

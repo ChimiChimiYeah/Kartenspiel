@@ -71,10 +71,10 @@ void kartenAusteilen(Spielkarte *kartenStapel, Spielkarte *menschHandkarten, Spi
     }
 }
 
-void karteLegen(struct Spieler *spieler, int anzahlHandkarten, int indexGespielteKarte)
+void karteLegen(struct Spieler *spieler, int maxHandkartenIndex, int indexGespielteKarte)
 {
     anzeigeGespielteKarte(spieler->spielername, spieler->handkarten[indexGespielteKarte]);
-    entferneKarteVonHand(spieler->handkarten, anzahlHandkarten, indexGespielteKarte);
+    entferneKarteVonHand(spieler->handkarten, maxHandkartenIndex, indexGespielteKarte);
 }
 
 int kartenStich(int spielerAmZug, int kartenwertErsteKarte, int kartenwertZweiteKarte)
@@ -84,9 +84,9 @@ int kartenStich(int spielerAmZug, int kartenwertErsteKarte, int kartenwertZweite
     else
         return 1 - spielerAmZug;
 }
-void entferneKarteVonHand(Spielkarte *handkarten, int anzahlHandkarten, int indexGespielteKarte)
+void entferneKarteVonHand(Spielkarte *handkarten, int maxHandkartenIndex, int indexGespielteKarte)
 {
-    for (int i = indexGespielteKarte; i < anzahlHandkarten - 1; i++)
+    for (int i = indexGespielteKarte; i < maxHandkartenIndex; i++)
     {
         handkarten[i] = handkarten[i + 1];
     }

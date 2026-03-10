@@ -8,8 +8,8 @@
 void initialisiereKonsole();
 char *auswahlSpielername(void);
 void anzeigeZug(int zugAnzahl);
-void handkartenAnzeige(const Spielkarte *handkarten, int anzahlHandkarten);
-int auswahlHandkarte(int anzahlHandkarten);
+void handkartenAnzeige(const Spielkarte *handkarten, int maxHandkartenIndex);
+int auswahlHandkarte(int maxHandkartenIndex);
 void anzeigeGespielteKarte(const char *spielername, const Spielkarte computerKarte);
 void anzeigeStichSieger(const char *spielername);
 void anzeigePunkte(const char *ersterSpielername, int ersterSpielerPunkte, const char *computerSpielername, int computerSpielerPunkte);

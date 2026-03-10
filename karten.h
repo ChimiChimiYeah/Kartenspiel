@@ -49,9 +49,9 @@ void kartenMischen(Spielkarte *kartenStapel);
 void kartenAusteilen(Spielkarte *kartenStapel, Spielkarte *menschHandKarten, Spielkarte *computerHandkarten);
 
 struct Spieler;
-void karteLegen(struct Spieler *spieler, int anzahlHandkarten, int indexGespielteKarte);
+void karteLegen(struct Spieler *spieler, int maxHandkartenIndex, int indexGespielteKarte);
 int kartenStich(int spielerAmZug, int kartenwertErsteKarte, int kartenwertZweiteKarte);
-void entferneKarteVonHand(Spielkarte *handkarten, int anzahlHandkarten, int indexGespielteKarte);
+void entferneKarteVonHand(Spielkarte *handkarten, int maxHandkartenIndex, int indexGespielteKarte);
 int kartenPunkte(int kartenwert);
 
 #endif
