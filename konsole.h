@@ -5,7 +5,8 @@
 #include <windows.h>
 #include "karten.h"
 
-void initialisiereKonsole();
+void initialisiereKonsole(void);
+void anzeigeSpielstart(void);
 char *auswahlSpielername(void);
 void anzeigeZug(int zugAnzahl);
 void handkartenAnzeige(const Spielkarte *handkarten, int maxHandkartenIndex);

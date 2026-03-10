@@ -2,56 +2,55 @@
 #include "spieler.h"
 #include "konsole.h"
 
+// Symbole für die Ausgabe der Kartenfarbe
 const char *symbolFarbe[] = {
     "♦",
     "♥",
     "♠",
     "♣"};
 
+// Symbole für die Ausgabe der Kartenwerte
 const char *symbolWert[] = {
     "2", "3", "4", "5", "6", "7", "8", "9", "10", "B", "D", "K", "A"};
 
+// Erstellt, mischt und verteilt ein Kartendeck mit 52 Karten an zwei Spieler
+// Parameter:
+// - Spielkarte *menschHandkarten: Liste, in der die Handkarten des Menschen gespeichert werden
+// - Spielkarte *computerHandkarten: Liste, in der die Handkarten des Computers gespeichert werden
 void kartenVergabe(Spielkarte *menschHandkarten, Spielkarte *computerHandkarten)
 {
-    // Implementation for dealing cards to players
-    // Assuming a standard deck of 52 cards and dealing 10 cards each
     Spielkarte kartenStapel[52];
     kartenstapelErstellen(kartenStapel);
     kartenMischen(kartenStapel);
     kartenAusteilen(kartenStapel, menschHandkarten, computerHandkarten);
 }
 
+// Erstellt ein Kartendeck mit 52 Karten
+// Parameter:
+// - Spielkarte *kartenStapel: Liste, in der die Karten gespeichert werden
 void kartenstapelErstellen(Spielkarte *kartenStapel)
 {
-    // Implementation for creating the deck of cards
-    // Create a standard 52-card deck
-    // Initialize the deck with all 52 cards
     for (int i = 0; i < FARBEN_ANZAHL; i++)
     {
         for (int j = 0; j < WERTE_ANZAHL; j++)
         {
-            // Create card with Kartenwert i and Kartenfarbe j
+            // Erstellt eine Karte
             Spielkarte karte =
                 {
                     .kartenfarbe = (Kartenfarbe)i,
                     .kartenwert = (Kartenwert)(j + 2),
                 };
-            // Add card to deck
+            // Speichert die Karte im Deck
             kartenStapel[i * WERTE_ANZAHL + j] = karte;
         }
     }
 }
 
+// Mischt ein Kartendeck beliebiger Größe
+// Parameter:
+// - Spielkarte *kartenStapel: Liste, die mithilfe von Bubble-Sort gemischt wird
 void kartenMischen(Spielkarte *kartenStapel)
 {
-    // Implementation for shuffling the deck of cards
-    // Shuffle the deck using fisher-yates algorithm
-    /*
-    -- To shuffle an array a of n elements (indices 0..n − 1):
-    for i from n − 1 down to 1 do
-     j ← random integer such that 0 ≤ j ≤ i
-     exchange a[j] and a[i]
-    */
     for (int i = DECK_GROESSE - 1; i > 0; i--)
     {
         int zufallsZahl = rand() % (i + 1);
@@ -61,9 +60,13 @@ void kartenMischen(Spielkarte *kartenStapel)
     }
 }
 
+// Verteilt das Kartendeck an zwei Spieler
+// Parameter:
+// - Spielkarte *kartenStapel: Liste mit dem Kartendeck
+// - Spielkarte *menschHandkarten: Liste, in der die Handkarten des Menschen gespeichert werden
+// - Spielkarte *computerHandkarten: Liste, in der die Handkarten des Computers gespeichert werden
 void kartenAusteilen(Spielkarte *kartenStapel, Spielkarte *menschHandkarten, Spielkarte *computerHandkarten)
 {
-    // giving out cards for free
     for (int i = 0; i < HANDKARTEN_ANZAHL; i++)
     {
         computerHandkarten[i] = kartenStapel[2 * i];

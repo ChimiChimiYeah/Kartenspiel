@@ -17,26 +17,33 @@ int main(void)
     Spielkarte ersteKarte;       // gibt die erste gelegte Karte der Runde an
     Spielkarte zweiteKarte;      // gibt die zweite gelegte Karte der Runde an
 
+    // Initialisierung von Werten
     srand(time(NULL));
     initialisiereKonsole();
+    anzeigeSpielstart();
+
     initialisiereSpieler(&spieler[MENSCH], &spieler[COMPUTER]);
 
     kartenVergabe(&spieler[MENSCH].handkarten[0], &spieler[COMPUTER].handkarten[0]);
     zufaelligeComputerStrategie(&spieler[COMPUTER]);
 
+    // Spiellogik, eine Itierung entspricht einer Runde
     for (int zugAnzahl = 1; zugAnzahl <= RUNDEN_ANZAHL; zugAnzahl++)
     {
         int maxHandkartenIndex = RUNDEN_ANZAHL - zugAnzahl;
-
         anzeigeZug(zugAnzahl);
+
+        // Legen der ersten Karte des Zuges
         indexGespielteKarte = spieler[spielerAmZug].zugPointer(spieler[spielerAmZug].handkarten, NULL, maxHandkartenIndex);
         ersteKarte = spieler[spielerAmZug].handkarten[indexGespielteKarte];
         karteLegen(&spieler[spielerAmZug], maxHandkartenIndex, indexGespielteKarte);
 
+        // Legen der zweiten Karte des Zuges
         indexGespielteKarte = spieler[1 - spielerAmZug].zugPointer(spieler[1 - spielerAmZug].handkarten, &ersteKarte, maxHandkartenIndex);
         zweiteKarte = spieler[1 - spielerAmZug].handkarten[indexGespielteKarte];
         karteLegen(&spieler[1 - spielerAmZug], maxHandkartenIndex, indexGespielteKarte);
 
+        // Berechnung und Anzeige des Stich-Siegers, Vergabe der Punkte und Setzen des neuen Beginners der nächsten Runde
         spielerStich = kartenStich(spielerAmZug, ersteKarte.kartenwert, zweiteKarte.kartenwert);
         spieler[spielerStich].punkte += kartenPunkte(ersteKarte.kartenwert) + kartenPunkte(zweiteKarte.kartenwert);
         anzeigeStichSieger(spieler[spielerStich].spielername);
