@@ -101,7 +101,7 @@ void sortiereHandkartenKleinsteGroesste(Spielkarte *computerHandkarten)
     }
     if ((HANDKARTEN_ANZAHL % 2) == 1)
     {
-        sortierteHandkarten[HANDKARTEN_ANZAHL - 1] = computerHandkarten[HANDKARTEN_ANZAHL / 2 + 1];
+        sortierteHandkarten[HANDKARTEN_ANZAHL - 1] = computerHandkarten[HANDKARTEN_ANZAHL / 2];
     }
     for (int i = 0; i < HANDKARTEN_ANZAHL; i++)
     {
@@ -125,7 +125,7 @@ int reaktiverComputer(Spielkarte *computerHandkarten, const Spielkarte *gespielt
         return 0;
     else
     {
-        for (int i = 0; i < maxHandkartenIndex + 1; i++)
+        for (int i = 0; i <= maxHandkartenIndex; i++)
         {
             if (gespielteKarte->kartenwert < computerHandkarten[i].kartenwert)
                 return i;

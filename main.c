@@ -45,5 +45,6 @@ int main(void)
     anzeigePunkte(spieler[MENSCH].spielername, spieler[MENSCH].punkte, spieler[COMPUTER].spielername, spieler[COMPUTER].punkte);
     anzeigeGewinner(spieler[MENSCH].spielername, spieler[MENSCH].punkte, spieler[COMPUTER].spielername, spieler[COMPUTER].punkte);
 
+    free(spieler[MENSCH].spielername);
     return 0;
 }

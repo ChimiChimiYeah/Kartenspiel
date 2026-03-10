@@ -58,32 +58,32 @@ Parameter:
 void handkartenAnzeige(const Spielkarte *handkarten, int maxHandkartenIndex)
 {
     printf("Deine Handkarten sind:\n");
-    for (int i = 0; i < maxHandkartenIndex + 1; i++)
+    for (int i = 0; i <= maxHandkartenIndex; i++)
     {
         printf("+=====+   ");
     }
     printf("\n");
-    for (int i = 0; i < maxHandkartenIndex + 1; i++)
+    for (int i = 0; i <= maxHandkartenIndex; i++)
     {
         printf("|%-2s  %s|   ", symbolWert[handkarten[i].kartenwert - 2], symbolFarbe[handkarten[i].kartenfarbe]);
     }
     printf("\n");
-    for (int i = 0; i < maxHandkartenIndex + 1; i++)
+    for (int i = 0; i <= maxHandkartenIndex; i++)
     {
         printf("|     |   ");
     }
     printf("\n");
-    for (int i = 0; i < maxHandkartenIndex + 1; i++)
+    for (int i = 0; i <= maxHandkartenIndex; i++)
     {
         printf("|%s  %2s|   ", symbolFarbe[handkarten[i].kartenfarbe], symbolWert[handkarten[i].kartenwert - 2]);
     }
     printf("\n");
-    for (int i = 0; i < maxHandkartenIndex + 1; i++)
+    for (int i = 0; i <= maxHandkartenIndex; i++)
     {
         printf("+=====+   ");
     }
     printf("\n");
-    for (int i = 0; i < maxHandkartenIndex + 1; i++)
+    for (int i = 0; i <= maxHandkartenIndex; i++)
     {
         printf("Index: %d  ", i);
     }
@@ -130,9 +130,9 @@ void anzeigePunkte(const char *ersterSpielername, int ersterSpielerPunkte, const
 void anzeigeGewinner(const char *ersterSpielername, int ersterSpielerPunkte, const char *computerSpielername, int computerSpielerPunkte)
 {
     if (ersterSpielerPunkte > computerSpielerPunkte)
-        printf("%s hat das Spiel gewonnen! Gut gemacht!", ersterSpielername);
+        printf("%s hat das Spiel gewonnen! Gut gemacht!\n", ersterSpielername);
     else if (computerSpielerPunkte > ersterSpielerPunkte)
-        printf("Leider verloren! %s hat das Spiel gewonnen!", computerSpielername);
+        printf("Leider verloren! %s hat das Spiel gewonnen!\n", computerSpielername);
     else
-        printf("Ihr habt gleich viele Punkte! Damit gewinnt %s!", ersterSpielername);
+        printf("Ihr habt gleich viele Punkte! Damit gewinnt %s!\n", ersterSpielername);
 }
